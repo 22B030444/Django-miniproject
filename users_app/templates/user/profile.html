@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ user.username }}'s Profile</title>
+<!--    <link rel="stylesheet" href="{% static 'mystyles.css' %}">-->
+    <link rel="stylesheet" href="{% static 'mystyles.css' %}?v={{ STATIC_VERSION }}">
+
+    <script>
+        function toggleEditForm() {
+            var form = document.getElementById('edit-profile-form');
+            form.style.display = form.style.display === 'none' || form.style.display === '' ? 'block' : 'none';
+        }
+    </script>
+</head>
+<body>
+    <div class="main">
+        <div class="profile-header">
+            <h1>{{ user.username }}'s Profile</h1>
+            <p>Joined on {{ user.date_joined }}</p>
+            {% if user.profile and user.profile.profile_picture %}
+                <img src="{{ user.profile.profile_picture.url }}" alt="{{ user.username }}'s Profile Picture" width="100">
+            {% else %}
+                <img src="{% static 'default_profile_picture.jpg' %}" alt="Default Profile Picture" width="100">
+            {% endif %}
+        </div>
+
+        <div class="profile-info">
+            <h2>Bio</h2>
+            <p>{{ user.profile.bio }}</p>
+        </div>
+
+        {% if message %}
+            <div class="alert">
+                <p>{{ message }}</p>
+            </div>
+        {% endif %}
+
+        <div class="profile-following">
+            <h2>Following</h2>
+            <ul>
+                {% for following_user in following %}
+                    <li><a href="{% url 'user-profile' following_user.id %}">{{ following_user.username }}</a></li>
+                {% empty %}
+                    <li>No users followed.</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="profile-followers">
+            <h2>Followers</h2>
+            <ul>
+                {% for follower in followers %}
+                    <li><a href="{% url 'user-profile' follower.id %}">{{ follower.username }}</a></li>
+                {% empty %}
+                    <li>No followers.</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="posts-list">
+            <h2>Posts by {{ user.username }}</h2>
+            <p>Number of posts: {{ posts.count }}</p> <!-- Используйте posts.count для отображения числа постов -->
+            <ul>
+                {% for post in posts %}
+                    <li>
+                        <h3><a href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h3>
+                        <small>Posted on {{ post.created_at }}</small>
+                    </li>
+                {% empty %}
+                    <li>No posts available.</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="profile-actions">
+            <a href="{% url 'post-list' %}">Back to Posts</a>
+
+            <!-- Follow/Unfollow Button -->
+            {% if user != request.user %}
+                <form action="{% if is_following %}{% url 'unfollow-user' user.id %}{% else %}{% url 'follow-user' user.id %}{% endif %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">{% if is_following %}Unfollow{% else %}Follow{% endif %}</button>
+                </form>
+            {% endif %}
+        </div>
+
+        <!-- Edit Profile Button -->
+        {% if user.id == request.user.id %}
+            <div class="edit-profile">
+                <button onclick="toggleEditForm()">Edit Profile</button>
+            </div>
+            <form id="edit-profile-form" action="{% url 'user-profile-edit' user.id %}" method="post" enctype="multipart/form-data" style="display: none;">
+                {% csrf_token %}
+                <h2>Edit Profile</h2>
+                <label for="bio">Bio:</label>
+                <textarea id="bio" name="bio">{{ user.profile.bio }}</textarea>
+
+                <label for="profile_picture">Profile Picture:</label>
+                <input type="file" id="profile_picture" name="profile_picture">
+
+                <button type="submit">Save Changes</button>
+            </form>
+        {% endif %}
+    </div>
+</body>
+</html>

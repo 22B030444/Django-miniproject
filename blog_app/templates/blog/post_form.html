@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    {% if post %}
+      Edit Post: {{ post.title }}
+    {% else %}
+      Create a New Post
+    {% endif %}
+  </title>
+<!--  <link rel="stylesheet" href="{% static 'mystyles.css' %}">-->
+  <link rel="stylesheet" href="{% static 'mystyles.css' %}?v={{ STATIC_VERSION }}">
+  <style>
+    /* Add any necessary CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .main {
+      width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <h1>{% if post %}Edit Post{% else %}Create Post{% endif %}</h1>
+    <form action="{% if post %}{% url 'post-edit' post.id %}{% else %}{% url 'post-create' %}{% endif %}" method="post">
+      {% csrf_token %}
+      <label for="title">Title:</label>
+      <input type="text" name="title" id="title" value="{{ post.title }}" required>
+
+      <label for="content">Content:</label>
+      <textarea name="content" id="content" required>{{ post.content }}</textarea>
+
+      <button type="submit">{% if post %}Update{% else %}Create{% endif %}</button>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+<!--    <link rel="stylesheet" href="{% static 'mystyles.css' %}">-->
+    <link rel="stylesheet" href="{% static 'mystyles.css' %}?v={{ STATIC_VERSION }}">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .main {
+            width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .post-meta {
+            color: #888;
+            font-size: 0.9em;
+        }
+        .comments-section {
+            margin-top: 40px;
+        }
+        .comment {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .comment-author {
+            font-weight: bold;
+        }
+        .comment-content {
+            margin-top: 5px;
+        }
+        .add-comment-form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>{{ post.title }}</h1>
+        <p class="post-meta">Posted on {{ post.created_at }} by {{ post.author }}</p>
+        <div class="post-content">
+            <p>{{ post.content }}</p>
+        </div>
+
+        <!-- Optionally, you can display serialized data (e.g., as JSON) for debugging -->
+        <pre>{{ post_data }}</pre>
+
+        <a href="{% url 'post-edit' post.id %}">Edit Post</a>
+        <a href="{% url 'post-list' %}">Back to Posts</a>
+
+        <!-- Comments Section -->
+        <div class="comments-section">
+            <h2>Comments</h2>
+            {% if comments %}
+                <ul>
+                    {% for comment in comments %}
+                        <li class="comment">
+                            <div class="comment-author">{{ comment.author }}</div>
+                            <div class="comment-content">{{ comment.content }}</div>
+                            <div class="post-meta">Posted on {{ comment.created_at }}</div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No comments yet. Be the first to comment!</p>
+            {% endif %}
+        </div>
+
+        <!-- Add Comment Form -->
+        <div class="add-comment-form">
+            <h3>Add a Comment</h3>
+            <form method="post">
+                {% csrf_token %}
+                {{ comment_form.as_p }}
+                <button type="submit">Post Comment</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{% load static %}
+<h1>User Registration</h1>
+<link rel="stylesheet" href="{% static 'mystyles.css' %}?v={{ STATIC_VERSION }}">
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Register</button>
+</form>
