@@ -1,0 +1,997 @@
+INFO 2024-11-17 21:21:48,337 autoreload Watching for file changes with StatReloader
+INFO 2024-11-17 21:22:16,068 autoreload Watching for file changes with StatReloader
+INFO 2024-11-17 21:23:00,965 autoreload Watching for file changes with StatReloader
+INFO 2024-11-17 21:23:44,310 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\courses\serializers.py changed, reloading.
+INFO 2024-11-17 21:23:44,848 autoreload Watching for file changes with StatReloader
+INFO 2024-11-17 21:30:02,646 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-17 21:30:04,926 basehttp "GET / HTTP/1.1" 404 3094
+INFO 2024-11-17 21:30:12,022 basehttp "GET /auth/users/ HTTP/1.1" 200 10230
+INFO 2024-11-17 21:30:35,426 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\StudentManagementSystem\urls.py changed, reloading.
+INFO 2024-11-17 21:30:36,007 autoreload Watching for file changes with StatReloader
+ERROR 2024-11-17 21:30:36,471 log Internal Server Error: /auth/users/
+Traceback (most recent call last):
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\module_loading.py", line 16, in cached_import
+    return getattr(module, class_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'users.serializers' has no attribute 'CustomUserCreateSerializer'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\renderers.py", line 726, in render
+    context = self.get_context(data, accepted_media_type, renderer_context)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\renderers.py", line 657, in get_context
+    raw_data_post_form = self.get_raw_data_form(data, view, 'POST', request)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\renderers.py", line 553, in get_raw_data_form
+    serializer = view.get_serializer()
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\generics.py", line 112, in get_serializer
+    serializer_class = self.get_serializer_class()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\djoser\views.py", line 96, in get_serializer_class
+    return settings.SERIALIZERS.user_create
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\djoser\conf.py", line 20, in __getattribute__
+    val = import_string(val)
+          ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\module_loading.py", line 32, in import_string
+    raise ImportError(
+ImportError: Module "users.serializers" does not define a "CustomUserCreateSerializer" attribute/class
+ERROR 2024-11-17 21:30:36,471 basehttp "GET /auth/users/ HTTP/1.1" 500 118719
+INFO 2024-11-17 21:30:55,687 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-17 21:30:57,108 basehttp "GET / HTTP/1.1" 404 3077
+ERROR 2024-11-17 21:31:02,257 log Internal Server Error: /auth/users/
+Traceback (most recent call last):
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\module_loading.py", line 16, in cached_import
+    return getattr(module, class_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'users.serializers' has no attribute 'CustomUserCreateSerializer'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\renderers.py", line 726, in render
+    context = self.get_context(data, accepted_media_type, renderer_context)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\renderers.py", line 657, in get_context
+    raw_data_post_form = self.get_raw_data_form(data, view, 'POST', request)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\renderers.py", line 553, in get_raw_data_form
+    serializer = view.get_serializer()
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\generics.py", line 112, in get_serializer
+    serializer_class = self.get_serializer_class()
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\djoser\views.py", line 96, in get_serializer_class
+    return settings.SERIALIZERS.user_create
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\djoser\conf.py", line 20, in __getattribute__
+    val = import_string(val)
+          ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\module_loading.py", line 32, in import_string
+    raise ImportError(
+ImportError: Module "users.serializers" does not define a "CustomUserCreateSerializer" attribute/class
+ERROR 2024-11-17 21:31:02,262 basehttp "GET /auth/users/ HTTP/1.1" 500 118582
+INFO 2024-11-17 21:34:10,230 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\StudentManagementSystem\settings.py changed, reloading.
+INFO 2024-11-17 21:34:10,777 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-17 21:34:12,432 basehttp "GET / HTTP/1.1" 404 3077
+WARNING 2024-11-17 21:34:24,102 basehttp "GET /auth/users/ HTTP/1.1" 401 14428
+INFO 2024-11-17 21:35:16,145 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\users\serializers.py changed, reloading.
+INFO 2024-11-17 21:35:16,791 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-17 21:35:17,301 basehttp "GET /auth/users/ HTTP/1.1" 401 14711
+INFO 2024-11-17 21:36:01,156 basehttp "POST /auth/users/ HTTP/1.1" 201 16395
+INFO 2024-11-17 21:39:08,021 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\users\serializers.py changed, reloading.
+INFO 2024-11-17 21:39:08,555 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-17 21:41:04,435 basehttp "POST /auth/users/ HTTP/1.1" 400 16353
+INFO 2024-11-17 21:42:02,047 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\users\serializers.py changed, reloading.
+INFO 2024-11-17 21:42:02,649 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-17 21:42:12,959 basehttp "GET / HTTP/1.1" 404 3077
+WARNING 2024-11-17 21:42:17,012 basehttp "GET /auth/users/ HTTP/1.1" 401 14715
+WARNING 2024-11-17 21:43:15,998 basehttp "GET / HTTP/1.1" 404 3077
+WARNING 2024-11-17 21:43:19,501 basehttp "GET /auth/users/ HTTP/1.1" 401 14715
+WARNING 2024-11-17 21:43:22,700 basehttp "POST /auth/users/ HTTP/1.1" 400 16339
+WARNING 2024-11-17 21:43:26,516 basehttp "POST /auth/users/ HTTP/1.1" 400 16339
+INFO 2024-11-17 21:43:52,240 basehttp "POST /auth/users/ HTTP/1.1" 201 16347
+INFO 2024-11-17 21:45:57,721 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\StudentManagementSystem\settings.py changed, reloading.
+INFO 2024-11-17 21:45:58,320 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-17 21:45:59,859 basehttp "GET / HTTP/1.1" 404 3077
+WARNING 2024-11-17 21:46:08,919 basehttp "POST /auth/users/ HTTP/1.1" 400 16353
+INFO 2024-11-17 21:46:42,755 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\users\serializers.py changed, reloading.
+INFO 2024-11-17 21:46:43,329 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-17 21:46:48,592 basehttp "POST /auth/users/ HTTP/1.1" 400 16357
+INFO 2024-11-17 21:47:43,111 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\users\serializers.py changed, reloading.
+INFO 2024-11-17 21:47:43,689 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-17 21:47:45,961 basehttp "POST /auth/users/ HTTP/1.1" 400 16859
+WARNING 2024-11-17 21:48:11,344 basehttp "GET / HTTP/1.1" 404 3077
+INFO 2024-11-17 21:48:12,003 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\users\serializers.py changed, reloading.
+INFO 2024-11-17 21:48:12,588 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-17 21:48:16,205 basehttp "GET /auth/users/ HTTP/1.1" 401 15033
+INFO 2024-11-17 21:50:32,130 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\users\serializers.py changed, reloading.
+INFO 2024-11-17 21:50:32,667 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-17 21:50:36,998 basehttp "GET / HTTP/1.1" 404 3077
+WARNING 2024-11-17 21:50:40,391 basehttp "GET /auth/users/ HTTP/1.1" 401 15029
+INFO 2024-11-17 21:51:17,888 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\users\serializers.py changed, reloading.
+INFO 2024-11-17 21:51:18,473 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-17 21:52:47,222 basehttp "GET / HTTP/1.1" 404 3077
+WARNING 2024-11-17 21:52:54,382 basehttp "GET /auth/users/ HTTP/1.1" 401 15033
+INFO 2024-11-17 21:53:47,906 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\users\serializers.py changed, reloading.
+INFO 2024-11-17 21:53:48,528 autoreload Watching for file changes with StatReloader
+ERROR 2024-11-17 21:53:49,110 log Internal Server Error: /auth/users/
+Traceback (most recent call last):
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\renderers.py", line 726, in render
+    context = self.get_context(data, accepted_media_type, renderer_context)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\renderers.py", line 657, in get_context
+    raw_data_post_form = self.get_raw_data_form(data, view, 'POST', request)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\renderers.py", line 564, in get_raw_data_form
+    data = serializer.data.copy()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\serializers.py", line 571, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.get_initial()
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\serializers.py", line 421, in get_initial
+    for field in self.fields.values()
+                 ^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\serializers.py", line 372, in fields
+    for key, value in self.get_fields().items():
+                      ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\serializers.py", line 1103, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\serializers.py", line 1249, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\serializers.py", line 1367, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `password1` is not valid for model `CustomUser` in `users.serializers.RegistrationSerializer`.
+ERROR 2024-11-17 21:53:49,110 basehttp "GET /auth/users/ HTTP/1.1" 500 136882
+INFO 2024-11-17 21:54:27,024 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\users\serializers.py changed, reloading.
+INFO 2024-11-17 21:54:27,602 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-17 21:54:29,001 basehttp "GET /auth/users/ HTTP/1.1" 401 14711
+INFO 2024-11-17 21:55:01,945 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\users\serializers.py changed, reloading.
+INFO 2024-11-17 21:55:02,570 autoreload Watching for file changes with StatReloader
+INFO 2024-11-17 21:57:13,552 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\StudentManagementSystem\settings.py changed, reloading.
+INFO 2024-11-17 21:57:14,505 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-17 21:57:50,825 basehttp "GET / HTTP/1.1" 404 3077
+WARNING 2024-11-17 21:57:54,529 basehttp "GET /auth/users/ HTTP/1.1" 401 14715
+INFO 2024-11-17 21:58:33,404 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-17 21:58:37,085 basehttp "GET /auth/users/ HTTP/1.1" 401 14715
+WARNING 2024-11-17 21:58:37,923 basehttp "GET /auth/users/ HTTP/1.1" 401 14715
+WARNING 2024-11-17 21:59:20,037 basehttp "GET /auth/u HTTP/1.1" 404 10933
+WARNING 2024-11-17 21:59:24,653 basehttp "GET /auth/users/ HTTP/1.1" 401 14715
+WARNING 2024-11-17 21:59:36,635 basehttp "GET /users/register/ HTTP/1.1" 404 3140
+WARNING 2024-11-17 21:59:50,541 basehttp "GET /students/ HTTP/1.1" 404 3216
+INFO 2024-11-18 18:03:50,871 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-18 18:03:53,221 basehttp "GET / HTTP/1.1" 404 3077
+WARNING 2024-11-18 18:03:53,514 basehttp "GET /favicon.ico HTTP/1.1" 404 3128
+WARNING 2024-11-18 18:04:07,660 basehttp "GET /auth/users/ HTTP/1.1" 401 14715
+WARNING 2024-11-18 18:04:18,549 basehttp "GET /users/register/ HTTP/1.1" 404 3140
+INFO 2024-11-18 18:05:15,529 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\StudentManagementSystem\urls.py changed, reloading.
+INFO 2024-11-18 18:05:16,558 autoreload Watching for file changes with StatReloader
+INFO 2024-11-18 18:07:30,910 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\users\views.py changed, reloading.
+INFO 2024-11-18 18:07:32,246 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-18 18:07:34,783 basehttp "GET / HTTP/1.1" 404 3226
+WARNING 2024-11-18 18:07:50,431 basehttp "GET /users/register/ HTTP/1.1" 405 13288
+WARNING 2024-11-18 18:08:01,997 basehttp "POST /users/register/ HTTP/1.1" 400 13437
+INFO 2024-11-18 18:08:37,713 views User registered: Thomas
+INFO 2024-11-18 18:08:37,726 basehttp "POST /users/register/ HTTP/1.1" 200 13411
+WARNING 2024-11-18 18:09:29,487 basehttp "GET /auth/users/ HTTP/1.1" 401 14715
+INFO 2024-11-18 18:14:23,564 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\users\urls.py changed, reloading.
+INFO 2024-11-18 18:14:25,040 autoreload Watching for file changes with StatReloader
+INFO 2024-11-18 18:15:12,518 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\StudentManagementSystem\settings.py changed, reloading.
+INFO 2024-11-18 18:15:13,676 autoreload Watching for file changes with StatReloader
+INFO 2024-11-18 18:15:56,649 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\StudentManagementSystem\settings.py changed, reloading.
+INFO 2024-11-18 18:15:57,887 autoreload Watching for file changes with StatReloader
+INFO 2024-11-18 18:16:40,423 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\StudentManagementSystem\settings.py changed, reloading.
+INFO 2024-11-18 18:16:41,590 autoreload Watching for file changes with StatReloader
+INFO 2024-11-18 18:16:57,407 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\StudentManagementSystem\settings.py changed, reloading.
+INFO 2024-11-18 18:16:59,019 autoreload Watching for file changes with StatReloader
+INFO 2024-11-18 18:18:09,931 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\StudentManagementSystem\settings.py changed, reloading.
+INFO 2024-11-18 18:18:11,441 autoreload Watching for file changes with StatReloader
+INFO 2024-11-18 18:18:23,715 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\StudentManagementSystem\settings.py changed, reloading.
+INFO 2024-11-18 18:18:25,536 autoreload Watching for file changes with StatReloader
+INFO 2024-11-18 18:19:53,478 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\StudentManagementSystem\settings.py changed, reloading.
+INFO 2024-11-18 18:19:54,614 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-18 18:19:56,087 basehttp "GET / HTTP/1.1" 404 3226
+INFO 2024-11-18 18:20:32,042 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-18 18:20:58,345 basehttp "GET / HTTP/1.1" 404 3226
+WARNING 2024-11-18 18:21:16,147 basehttp "GET /auth/create/jwt/ HTTP/1.1" 404 11112
+WARNING 2024-11-18 18:21:33,501 basehttp "GET /auth/jwt/create HTTP/1.1" 405 12643
+INFO 2024-11-18 18:22:04,588 basehttp "POST /auth/jwt/create HTTP/1.1" 200 13087
+WARNING 2024-11-18 18:22:22,185 basehttp "GET /auth/jwt/logout HTTP/1.1" 404 11109
+WARNING 2024-11-18 18:22:25,250 basehttp "GET /auth/jwt/logout/ HTTP/1.1" 404 11112
+WARNING 2024-11-18 18:22:55,127 basehttp "GET /auth/jwt/refresh/ HTTP/1.1" 405 12316
+WARNING 2024-11-18 18:23:43,893 basehttp "GET /auth/users/activation/ HTTP/1.1" 401 12652
+WARNING 2024-11-18 18:24:00,982 basehttp "GET / HTTP/1.1" 404 3226
+WARNING 2024-11-18 18:24:08,504 basehttp "GET /students/ HTTP/1.1" 404 3365
+INFO 2024-11-18 18:24:13,403 basehttp "GET /students/api HTTP/1.1" 301 0
+WARNING 2024-11-18 18:24:13,419 basehttp "GET /students/api/ HTTP/1.1" 401 9970
+WARNING 2024-11-18 18:25:33,034 basehttp "GET /auth/register/ HTTP/1.1" 404 11106
+WARNING 2024-11-18 18:26:36,522 basehttp "GET /auth/jwt/create HTTP/1.1" 405 12643
+INFO 2024-11-18 18:26:53,811 basehttp "POST /auth/jwt/create HTTP/1.1" 200 13087
+WARNING 2024-11-18 18:28:45,246 basehttp "GET /auth/jwt/create HTTP/1.1" 405 40
+WARNING 2024-11-18 18:28:53,208 basehttp "POST /auth/jwt/create HTTP/1.1" 400 79
+INFO 2024-11-18 18:32:03,639 basehttp "GET /students/api/ HTTP/1.1" 200 111
+WARNING 2024-11-18 18:32:19,352 basehttp "GET /students/api/students/ HTTP/1.1" 401 58
+ERROR 2024-11-18 18:32:26,850 log Internal Server Error: /students/api/students/
+Traceback (most recent call last):
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+                                    ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\students\views.py", line 40, in get_queryset
+    return self.queryset.filter(user=self.request.user)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\query.py", line 1491, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\query.py", line 1303, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\query.py", line 1768, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'user' into field. Choices are: attendance, dob, email, enrollment, grade, id, name, registration_date
+ERROR 2024-11-18 18:32:26,855 basehttp "GET /students/api/students/ HTTP/1.1" 500 142034
+INFO 2024-11-18 18:39:57,765 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\students\views.py changed, reloading.
+INFO 2024-11-18 18:39:58,463 autoreload Watching for file changes with StatReloader
+ERROR 2024-11-18 18:40:04,467 log Internal Server Error: /students/api/students/
+Traceback (most recent call last):
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\request.py", line 421, in __getattr__
+    return getattr(_request, attr)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'emal'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+                                    ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\students\views.py", line 40, in get_queryset
+    return self.queryset.filter(email=self.request.emal)
+                                      ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\request.py", line 423, in __getattr__
+    return self.__getattribute__(attr)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Request' object has no attribute 'emal'
+ERROR 2024-11-18 18:40:04,467 basehttp "GET /students/api/students/ HTTP/1.1" 500 110151
+INFO 2024-11-18 18:40:52,276 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\students\views.py changed, reloading.
+INFO 2024-11-18 18:40:52,935 autoreload Watching for file changes with StatReloader
+ERROR 2024-11-18 18:40:56,614 log Internal Server Error: /students/api/students/
+Traceback (most recent call last):
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\request.py", line 421, in __getattr__
+    return getattr(_request, attr)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'WSGIRequest' object has no attribute 'email'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+                                    ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\students\views.py", line 40, in get_queryset
+    return self.queryset.filter(email=self.request.email)
+                                      ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\request.py", line 423, in __getattr__
+    return self.__getattribute__(attr)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Request' object has no attribute 'email'
+ERROR 2024-11-18 18:40:56,614 basehttp "GET /students/api/students/ HTTP/1.1" 500 110165
+INFO 2024-11-18 18:42:16,512 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\students\models.py changed, reloading.
+INFO 2024-11-18 18:42:17,152 autoreload Watching for file changes with StatReloader
+INFO 2024-11-18 18:43:00,243 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\students\models.py changed, reloading.
+INFO 2024-11-18 18:43:00,882 autoreload Watching for file changes with StatReloader
+INFO 2024-11-18 18:44:43,993 autoreload Watching for file changes with StatReloader
+ERROR 2024-11-18 18:44:48,588 log Internal Server Error: /students/api/students/
+Traceback (most recent call last):
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: students_student.user_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\generics.py", line 175, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\pagination.py", line 212, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\paginator.py", line 89, in page
+    number = self.validate_number(number)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\paginator.py", line 110, in count
+    return c()
+           ^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 620, in count
+    return self.query.get_count(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\query.py", line 630, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\query.py", line 616, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: students_student.user_id
+ERROR 2024-11-18 18:44:48,588 basehttp "GET /students/api/students/ HTTP/1.1" 500 195273
+INFO 2024-11-18 18:47:43,806 autoreload Watching for file changes with StatReloader
+ERROR 2024-11-18 18:47:46,981 log Internal Server Error: /students/api/students/
+Traceback (most recent call last):
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: students_student.user_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\generics.py", line 175, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\pagination.py", line 212, in paginate_queryset
+    self.page = paginator.page(page_number)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\paginator.py", line 89, in page
+    number = self.validate_number(number)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\paginator.py", line 70, in validate_number
+    if number > self.num_pages:
+                ^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\paginator.py", line 116, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+       ^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\paginator.py", line 110, in count
+    return c()
+           ^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\query.py", line 620, in count
+    return self.query.get_count(using=self.db)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\query.py", line 630, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\query.py", line 616, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\models\sql\compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: students_student.user_id
+ERROR 2024-11-18 18:47:46,994 basehttp "GET /students/api/students/ HTTP/1.1" 500 195273
+INFO 2024-11-18 18:48:59,142 autoreload Watching for file changes with StatReloader
+INFO 2024-11-18 18:49:01,870 basehttp "GET /students/api/students/ HTTP/1.1" 200 52
+INFO 2024-11-18 18:55:01,734 autoreload Watching for file changes with StatReloader
+INFO 2024-11-18 18:56:38,794 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\StudentManagementSystem\settings.py changed, reloading.
+INFO 2024-11-18 18:56:39,953 autoreload Watching for file changes with StatReloader
+INFO 2024-11-18 19:46:08,604 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-18 19:46:11,041 basehttp "GET / HTTP/1.1" 404 3226
+INFO 2024-11-19 15:06:34,679 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-19 15:06:38,822 basehttp "GET / HTTP/1.1" 404 3226
+WARNING 2024-11-19 15:06:46,537 basehttp "GET / HTTP/1.1" 404 3226
+WARNING 2024-11-19 15:07:03,234 basehttp "GET /auth/user/ HTTP/1.1" 404 11094
+WARNING 2024-11-19 15:07:11,354 basehttp "POST /auth/users/ HTTP/1.1" 401 183
+WARNING 2024-11-19 15:07:39,693 basehttp "GET / HTTP/1.1" 404 3226
+WARNING 2024-11-19 15:07:44,763 basehttp "GET /auth/users/ HTTP/1.1" 401 14734
+WARNING 2024-11-19 15:07:54,619 basehttp "GET /auth/users/ HTTP/1.1" 401 183
+WARNING 2024-11-19 15:08:29,637 basehttp "GET /auth/jwt/create HTTP/1.1" 405 12643
+INFO 2024-11-19 15:08:33,445 basehttp "POST /auth/jwt/create HTTP/1.1" 200 13087
+WARNING 2024-11-19 15:09:05,732 basehttp "POST /auth/jwt/create HTTP/1.1" 400 79
+WARNING 2024-11-19 15:09:59,267 basehttp "POST /courses/ HTTP/1.1" 404 3363
+WARNING 2024-11-19 15:10:11,876 basehttp "GET /courses/ HTTP/1.1" 404 3362
+INFO 2024-11-19 15:10:30,628 basehttp "GET /courses/api/ HTTP/1.1" 200 56
+WARNING 2024-11-19 15:10:38,154 basehttp "GET /courses/api/courses/ HTTP/1.1" 401 58
+INFO 2024-11-19 15:10:53,700 basehttp "GET /courses/api/courses/ HTTP/1.1" 200 2
+WARNING 2024-11-19 15:16:46,069 basehttp "POST /courses/api/courses/ HTTP/1.1" 403 63
+INFO 2024-11-19 15:17:09,776 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\courses\urls.py changed, reloading.
+INFO 2024-11-19 15:17:11,471 autoreload Watching for file changes with StatReloader
+INFO 2024-11-19 15:19:30,170 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\courses\views.py changed, reloading.
+INFO 2024-11-19 15:19:32,355 autoreload Watching for file changes with StatReloader
+INFO 2024-11-19 15:20:06,850 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\students\urls.py changed, reloading.
+INFO 2024-11-19 15:20:08,596 autoreload Watching for file changes with StatReloader
+INFO 2024-11-19 15:21:42,195 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\students\views.py changed, reloading.
+INFO 2024-11-19 15:21:44,009 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-19 15:21:59,115 basehttp "GET /users/api/ HTTP/1.1" 404 4146
+WARNING 2024-11-19 15:22:06,607 basehttp "GET /users/api/swagger/ HTTP/1.1" 404 4170
+INFO 2024-11-19 15:22:27,937 basehttp "GET /users/swagger/ HTTP/1.1" 200 2446
+WARNING 2024-11-19 15:23:46,706 basehttp "GET /auth/users/ HTTP/1.1" 401 14734
+INFO 2024-11-19 15:24:28,405 basehttp "POST /auth/users/ HTTP/1.1" 201 16372
+WARNING 2024-11-19 15:24:40,110 basehttp "GET /auth/jwt/create HTTP/1.1" 405 12643
+WARNING 2024-11-19 15:24:47,357 basehttp "POST /auth/jwt/create HTTP/1.1" 401 12588
+INFO 2024-11-19 15:25:08,435 basehttp "POST /auth/jwt/create HTTP/1.1" 200 13087
+INFO 2024-11-19 15:25:55,761 basehttp "GET /courses/api/ HTTP/1.1" 200 119
+WARNING 2024-11-19 15:26:01,943 basehttp "GET /courses/api/courses/ HTTP/1.1" 401 58
+WARNING 2024-11-19 15:31:08,830 basehttp "GET /courses/api/courses/ HTTP/1.1" 401 10134
+WARNING 2024-11-19 15:31:13,041 basehttp "GET /courses/api/courses/ HTTP/1.1" 401 10134
+WARNING 2024-11-19 15:31:25,359 basehttp "POST /courses/api/courses/ HTTP/1.1" 403 63
+INFO 2024-11-19 15:34:00,857 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\courses\views.py changed, reloading.
+INFO 2024-11-19 15:34:02,881 autoreload Watching for file changes with StatReloader
+INFO 2024-11-19 15:35:30,239 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\users\permissions.py changed, reloading.
+INFO 2024-11-19 15:35:32,452 autoreload Watching for file changes with StatReloader
+INFO 2024-11-19 15:37:17,202 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\users\views.py changed, reloading.
+INFO 2024-11-19 15:37:19,176 autoreload Watching for file changes with StatReloader
+INFO 2024-11-19 15:42:22,203 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\users\views.py changed, reloading.
+INFO 2024-11-19 15:42:24,321 autoreload Watching for file changes with StatReloader
+INFO 2024-11-19 15:55:14,828 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\users\models.py changed, reloading.
+INFO 2024-11-19 15:55:17,214 autoreload Watching for file changes with StatReloader
+INFO 2024-11-19 15:57:04,386 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\users\models.py changed, reloading.
+INFO 2024-11-19 15:57:06,588 autoreload Watching for file changes with StatReloader
+INFO 2024-11-19 16:02:23,465 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\users\permissions.py changed, reloading.
+INFO 2024-11-19 16:02:25,654 autoreload Watching for file changes with StatReloader
+INFO 2024-11-19 16:05:30,669 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\users\serializers.py changed, reloading.
+INFO 2024-11-19 16:05:32,525 autoreload Watching for file changes with StatReloader
+INFO 2024-11-19 16:08:09,130 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\users\views.py changed, reloading.
+INFO 2024-11-19 16:08:11,385 autoreload Watching for file changes with StatReloader
+INFO 2024-11-19 16:10:52,548 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\users\views.py changed, reloading.
+INFO 2024-11-19 16:10:54,756 autoreload Watching for file changes with StatReloader
+INFO 2024-11-19 16:15:25,713 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\users\urls.py changed, reloading.
+INFO 2024-11-19 16:15:27,820 autoreload Watching for file changes with StatReloader
+INFO 2024-11-19 16:15:51,107 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\users\urls.py changed, reloading.
+INFO 2024-11-19 16:15:53,127 autoreload Watching for file changes with StatReloader
+INFO 2024-11-19 16:16:09,060 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\users\urls.py changed, reloading.
+INFO 2024-11-19 16:16:10,883 autoreload Watching for file changes with StatReloader
+INFO 2024-11-19 16:20:05,239 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\users\urls.py changed, reloading.
+INFO 2024-11-19 16:20:07,263 autoreload Watching for file changes with StatReloader
+INFO 2024-11-19 16:23:05,968 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\students\serializers.py changed, reloading.
+INFO 2024-11-19 16:23:07,604 autoreload Watching for file changes with StatReloader
+INFO 2024-11-19 16:23:43,126 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\students\models.py changed, reloading.
+INFO 2024-11-19 16:23:45,315 autoreload Watching for file changes with StatReloader
+INFO 2024-11-19 16:26:27,426 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\students\models.py changed, reloading.
+INFO 2024-11-19 16:26:29,429 autoreload Watching for file changes with StatReloader
+INFO 2024-11-19 16:26:47,546 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\courses\models.py changed, reloading.
+INFO 2024-11-19 16:26:49,965 autoreload Watching for file changes with StatReloader
+INFO 2024-11-19 16:28:32,395 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\students\views.py changed, reloading.
+INFO 2024-11-19 16:28:34,483 autoreload Watching for file changes with StatReloader
+INFO 2024-11-19 16:32:24,896 autoreload C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\students\urls.py changed, reloading.
+INFO 2024-11-19 16:32:27,749 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-19 16:35:22,739 basehttp "POST /courses/api/courses/ HTTP/1.1" 401 183
+WARNING 2024-11-19 16:35:42,493 basehttp "GET /courses/api/courses/ HTTP/1.1" 401 10134
+WARNING 2024-11-19 16:36:23,410 basehttp "POST /auth/jwt/create/ HTTP/1.1" 400 79
+WARNING 2024-11-19 16:36:53,115 basehttp "POST /auth/jwt/create/ HTTP/1.1" 415 62
+WARNING 2024-11-19 16:37:16,833 basehttp "POST /auth/jwt/create/ HTTP/1.1" 415 61
+WARNING 2024-11-19 16:37:31,795 basehttp "POST /auth/jwt/create/ HTTP/1.1" 415 62
+WARNING 2024-11-19 16:37:47,598 basehttp "POST /auth/jwt/create/ HTTP/1.1" 415 62
+WARNING 2024-11-19 16:38:22,186 basehttp "POST /auth/jwt/create/ HTTP/1.1" 400 79
+WARNING 2024-11-19 16:39:00,527 basehttp "POST /auth/jwt/create/ HTTP/1.1" 400 71
+WARNING 2024-11-19 16:39:34,860 basehttp "POST /auth/jwt/create/ HTTP/1.1" 400 36
+INFO 2024-11-19 16:39:45,701 basehttp "POST /auth/jwt/create/ HTTP/1.1" 200 483
+WARNING 2024-11-19 16:40:05,989 basehttp "GET /students/api/students/ HTTP/1.1" 404 4467
+WARNING 2024-11-19 16:40:23,049 basehttp "GET /students/api/students/ HTTP/1.1" 404 4467
+WARNING 2024-11-19 16:40:27,661 basehttp "POST /students/api/students/ HTTP/1.1" 404 4468
+WARNING 2024-11-19 16:40:37,527 basehttp "POST /courses/api/courses/ HTTP/1.1" 403 63
+ERROR 2024-11-19 16:41:20,807 log Internal Server Error: /courses/api/courses/
+Traceback (most recent call last):
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django_redis\cache.py", line 29, in _decorator
+    return method(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django_redis\cache.py", line 99, in _get
+    return self.client.get(key, default=default, version=version, client=client)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django_redis\client\default.py", line 260, in get
+    raise ConnectionInterrupted(connection=client) from e
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error while reading from 127.0.0.1:6379 : (10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\courses\views.py", line 78, in list
+    cached_courses = cache.get(cache_key)
+                     ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django_redis\cache.py", line 92, in get
+    value = self._get(key, default, version, client)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django_redis\cache.py", line 36, in _decorator
+    raise e.__cause__
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django_redis\client\default.py", line 258, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\redis\commands\core.py", line 1822, in get
+    return self.execute_command("GET", name, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\redis\client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\redis\client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\redis\connection.py", line 1422, in get_connection
+    connection.connect()
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\redis\connection.py", line 369, in connect
+    self.on_connect()
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\redis\connection.py", line 471, in on_connect
+    self.read_response()
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\redis\connection.py", line 600, in read_response
+    raise ConnectionError(
+redis.exceptions.ConnectionError: Error while reading from 127.0.0.1:6379 : (10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None)
+ERROR 2024-11-19 16:41:20,853 log Internal Server Error: /courses/api/courses/
+Traceback (most recent call last):
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django_redis\cache.py", line 29, in _decorator
+    return method(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django_redis\cache.py", line 99, in _get
+    return self.client.get(key, default=default, version=version, client=client)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django_redis\client\default.py", line 260, in get
+    raise ConnectionInterrupted(connection=client) from e
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error while reading from 127.0.0.1:6379 : (10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\courses\views.py", line 78, in list
+    cached_courses = cache.get(cache_key)
+                     ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django_redis\cache.py", line 92, in get
+    value = self._get(key, default, version, client)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django_redis\cache.py", line 36, in _decorator
+    raise e.__cause__
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django_redis\client\default.py", line 258, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\redis\commands\core.py", line 1822, in get
+    return self.execute_command("GET", name, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\redis\client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\redis\client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\redis\connection.py", line 1422, in get_connection
+    connection.connect()
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\redis\connection.py", line 369, in connect
+    self.on_connect()
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\redis\connection.py", line 471, in on_connect
+    self.read_response()
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\redis\connection.py", line 600, in read_response
+    raise ConnectionError(
+redis.exceptions.ConnectionError: Error while reading from 127.0.0.1:6379 : (10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None)
+ERROR 2024-11-19 16:41:20,871 basehttp "GET /courses/api/courses/ HTTP/1.1" 500 159191
+INFO 2024-11-19 16:41:20,890 basehttp code 400, message Bad request syntax ('{')
+WARNING 2024-11-19 16:41:20,890 basehttp "{" 400 -
+INFO 2024-11-19 16:41:20,890 basehttp - Broken pipe from ('127.0.0.1', 59893)
+INFO 2024-11-19 16:41:41,870 autoreload Watching for file changes with StatReloader
+ERROR 2024-11-19 16:41:49,043 log Internal Server Error: /courses/api/courses/
+Traceback (most recent call last):
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django_redis\cache.py", line 29, in _decorator
+    return method(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django_redis\cache.py", line 99, in _get
+    return self.client.get(key, default=default, version=version, client=client)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django_redis\client\default.py", line 260, in get
+    raise ConnectionInterrupted(connection=client) from e
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\PycharmProjects\Django_mimiproject_1\StudentManagementSystem\courses\views.py", line 78, in list
+    cached_courses = cache.get(cache_key)
+                     ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django_redis\cache.py", line 92, in get
+    value = self._get(key, default, version, client)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django_redis\cache.py", line 36, in _decorator
+    raise e.__cause__
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\django_redis\client\default.py", line 258, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\redis\commands\core.py", line 1822, in get
+    return self.execute_command("GET", name, keys=[name])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\redis\client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\redis\client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\redis\connection.py", line 1422, in get_connection
+    connection.connect()
+  File "C:\Users\Жасмин\AppData\Local\Programs\Python\Python311\Lib\site-packages\redis\connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+ERROR 2024-11-19 16:41:49,065 basehttp "GET /courses/api/courses/ HTTP/1.1" 500 150275
+INFO 2024-11-19 16:42:42,336 autoreload Watching for file changes with StatReloader
+INFO 2024-11-19 16:42:46,676 basehttp "GET /courses/api/courses/ HTTP/1.1" 200 2
+WARNING 2024-11-19 16:42:52,357 basehttp "PUT /courses/api/courses/ HTTP/1.1" 405 40
+WARNING 2024-11-19 16:43:04,043 basehttp "PUT /grade/ HTTP/1.1" 404 3262
+WARNING 2024-11-19 16:43:08,511 basehttp "GET /grade/ HTTP/1.1" 404 3262
+WARNING 2024-11-19 16:43:30,997 basehttp "GET /grades/ HTTP/1.1" 404 3359
+INFO 2024-11-19 16:43:50,194 basehttp "GET /grades/api/ HTTP/1.1" 200 53
+INFO 2024-11-19 16:43:57,457 basehttp "GET /grades/api/grades/ HTTP/1.1" 200 52
+WARNING 2024-11-19 16:44:06,179 basehttp "POST /grades/api/grades/ HTTP/1.1" 403 63
+WARNING 2024-11-19 16:44:25,821 basehttp "POST /auth/users/ HTTP/1.1" 400 79
+WARNING 2024-11-19 16:44:36,904 basehttp "POST /auth/users/ HTTP/1.1" 400 79
+INFO 2024-11-19 16:44:57,718 basehttp "POST /auth/jwt/create HTTP/1.1" 200 13087
+WARNING 2024-11-19 16:45:08,144 basehttp "GET /auth/users/ HTTP/1.1" 401 14734
+WARNING 2024-11-19 16:45:28,556 basehttp "POST /auth/users/ HTTP/1.1" 400 16504
+INFO 2024-11-19 16:45:59,488 basehttp "POST /auth/users/ HTTP/1.1" 201 16469
+WARNING 2024-11-19 16:46:17,259 basehttp "GET /auth/jwt/create HTTP/1.1" 405 12643
+WARNING 2024-11-19 16:46:34,159 basehttp "POST /auth/jwt/create HTTP/1.1" 401 12588
+WARNING 2024-11-19 16:47:22,484 basehttp "POST /auth/jwt/create HTTP/1.1" 401 12588
+WARNING 2024-11-19 16:47:30,196 basehttp "GET /auth/users/ HTTP/1.1" 401 14734
+INFO 2024-11-19 16:47:55,875 basehttp "POST /auth/users/ HTTP/1.1" 201 16467
+WARNING 2024-11-19 16:48:02,522 basehttp "GET /auth/jwt/create HTTP/1.1" 405 12643
+INFO 2024-11-19 16:48:18,544 basehttp "POST /auth/jwt/create HTTP/1.1" 200 13087
+WARNING 2024-11-19 16:48:41,937 basehttp "POST /courses/api/courses/ HTTP/1.1" 403 63
+INFO 2024-11-19 20:39:02,704 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-19 20:39:14,398 basehttp "GET / HTTP/1.1" 404 3226
+INFO 2024-11-19 20:39:21,353 basehttp "GET /admin/ HTTP/1.1" 302 0
+INFO 2024-11-19 20:39:21,383 basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4160
+INFO 2024-11-19 20:39:21,530 basehttp "GET /static/admin/css/base.css HTTP/1.1" 200 22092
+INFO 2024-11-19 20:39:21,531 basehttp "GET /static/admin/css/login.css HTTP/1.1" 200 951
+INFO 2024-11-19 20:39:21,534 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2024-11-19 20:39:21,535 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2804
+INFO 2024-11-19 20:39:21,536 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 200 17972
+INFO 2024-11-19 20:39:21,536 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2024-11-19 20:39:21,539 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2024-11-19 20:39:24,239 basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4322
+INFO 2024-11-19 20:39:35,083 signals User logged in: Jasok
+INFO 2024-11-19 20:39:35,086 basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2024-11-19 20:39:35,116 basehttp "GET /admin/ HTTP/1.1" 200 16454
+INFO 2024-11-19 20:39:35,147 basehttp "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2024-11-19 20:39:35,148 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2024-11-19 20:39:35,148 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2024-11-19 20:39:46,376 basehttp "GET /admin/users/customuser/ HTTP/1.1" 200 18560
+INFO 2024-11-19 20:39:46,428 basehttp "GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+INFO 2024-11-19 20:39:46,430 basehttp "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO 2024-11-19 20:39:46,431 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2024-11-19 20:39:46,433 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9097
+INFO 2024-11-19 20:39:46,435 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2024-11-19 20:39:46,435 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2024-11-19 20:39:46,437 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+INFO 2024-11-19 20:39:46,439 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2024-11-19 20:39:46,442 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO 2024-11-19 20:39:46,443 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO 2024-11-19 20:39:46,446 basehttp "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2024-11-19 20:39:46,470 basehttp "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO 2024-11-19 20:40:01,149 basehttp "GET /admin/users/customuser/1/change/ HTTP/1.1" 200 33188
+INFO 2024-11-19 20:40:01,183 basehttp "GET /static/admin/css/forms.css HTTP/1.1" 200 8794
+INFO 2024-11-19 20:40:01,183 basehttp "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2024-11-19 20:40:01,183 basehttp "GET /static/admin/css/widgets.css HTTP/1.1" 200 11564
+INFO 2024-11-19 20:40:01,183 basehttp "GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+INFO 2024-11-19 20:40:01,183 basehttp "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+INFO 2024-11-19 20:40:01,197 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2024-11-19 20:40:01,198 basehttp "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+INFO 2024-11-19 20:40:01,269 basehttp "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+INFO 2024-11-19 20:40:01,270 basehttp "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+INFO 2024-11-19 20:40:10,165 basehttp "GET /admin/auth/group/add/?_to_field=id&_popup=1 HTTP/1.1" 200 12208
+INFO 2024-11-19 20:40:10,206 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2024-11-19 20:40:10,212 basehttp "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+INFO 2024-11-19 20:40:10,214 basehttp "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 15502
+INFO 2024-11-19 20:40:10,296 basehttp "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+INFO 2024-11-19 20:40:10,296 basehttp "GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3291
+INFO 2024-11-19 20:40:53,953 basehttp "GET /admin/users/customuser/1/history/ HTTP/1.1" 200 14087
+INFO 2024-11-19 20:40:57,616 basehttp "GET /admin/students/student/ HTTP/1.1" 200 15204
+INFO 2024-11-19 20:40:57,651 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2024-11-19 20:40:59,289 basehttp "GET /admin/grades/grade/ HTTP/1.1" 200 15182
+INFO 2024-11-19 20:40:59,314 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2024-11-19 20:40:59,530 basehttp "GET /admin/grades/grade/ HTTP/1.1" 200 15182
+INFO 2024-11-19 20:40:59,559 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2024-11-19 20:41:03,857 basehttp "GET /admin/students/student/ HTTP/1.1" 200 15204
+INFO 2024-11-19 20:41:03,891 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2024-11-19 20:41:07,044 basehttp "GET /admin/students/student/add/ HTTP/1.1" 200 19299
+INFO 2024-11-19 20:41:07,077 basehttp "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+INFO 2024-11-19 20:41:07,085 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2024-11-19 20:41:12,433 basehttp "GET /admin/students/student/ HTTP/1.1" 200 15204
+INFO 2024-11-19 20:41:13,014 basehttp "GET /admin/grades/grade/ HTTP/1.1" 200 15182
+INFO 2024-11-19 20:41:13,639 basehttp "GET /admin/students/student/ HTTP/1.1" 200 15204
+INFO 2024-11-19 20:41:14,156 basehttp "GET /admin/users/customuser/1/history/ HTTP/1.1" 200 14087
+INFO 2024-11-19 20:41:14,661 basehttp "GET /admin/users/customuser/1/change/ HTTP/1.1" 200 33188
+INFO 2024-11-19 20:41:15,466 basehttp "GET /admin/users/customuser/ HTTP/1.1" 200 18560
+INFO 2024-11-19 20:41:19,364 basehttp "POST /admin/users/customuser/ HTTP/1.1" 200 16194
+INFO 2024-11-19 20:41:19,409 basehttp "GET /static/admin/js/cancel.js HTTP/1.1" 200 884
+INFO 2024-11-19 20:41:20,859 basehttp "POST /admin/users/customuser/ HTTP/1.1" 302 0
+INFO 2024-11-19 20:41:20,878 basehttp "GET /admin/users/customuser/ HTTP/1.1" 200 16590
+INFO 2024-11-19 20:41:20,898 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2024-11-19 20:41:20,919 basehttp "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
