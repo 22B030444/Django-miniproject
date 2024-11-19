@@ -1,4 +1,6 @@
+
 from django.test import TestCase
+from future.backports.email.headerregistry.Address import username
 from rest_framework import status
 from django.core.cache import cache
 from rest_framework.test import APITestCase
@@ -86,6 +88,7 @@ class StudentViewSetTest(APITestCase):
         response = self.client.delete(url)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertEqual(Student.objects.count(), 0)
+
 
     def test_role_based_permission(self):
         """Test that a student cannot update another student's profile."""

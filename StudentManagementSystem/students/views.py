@@ -3,8 +3,7 @@ from django.core.cache import cache
 from attendance.models import Attendance
 from courses.models import Enrollment
 from grades.models import Grade
-from users.permissions import IsAdmin, IsStudent
-
+from users.permissions import IsAdmin, IsStudent, IsTeacher
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -20,7 +19,7 @@ class AdminViewSet(viewsets.ModelViewSet):
     """
     Viewset for administrators. Allows full access to all student records.
     """
-    permission_classes = [IsAuthenticated, IsAdmin]  # Only admins can access
+    permission_classes = [IsAuthenticated, IsAdmin, IsTeacher]  # Only admins can access
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
 
@@ -96,6 +95,7 @@ class StudentViewSet(viewsets.ModelViewSet):
         """
         student = self.get_object()
         if student.user != self.request.user:
+            logger.warning(f'Unauthorized update attempt by user: {self.request.user.username} on student ID: {student.id}')
             raise PermissionDenied("You can only edit your own data.")
 
         # Invalidate the cache for the updated student

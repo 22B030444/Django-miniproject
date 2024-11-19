@@ -96,9 +96,9 @@ DJOSER = {
     'USER_ID_FIELD': 'id',
     'LOGIN_FIELD': 'email',  # Login with email
     'SERIALIZERS': {
-        'user_create': 'users.serializers.RegistrationSerializer',  # Use your custom serializer
-        'user': 'users.serializers.CustomUserCreateSerializer',
-        'current_user': 'users.serializers.CustomUserCreateSerializer',
+        'user_create': 'users.serializers.CreateSerializer',  # Use your custom serializer
+        'user': 'users.serializers.CreateSerializer',
+        'current_user': 'users.serializers.CreateSerializer',
     },
     'PERMISSIONS': {
         'user_create': ['rest_framework.permissions.AllowAny'],  # Allow registration for anyone
@@ -214,8 +214,8 @@ WSGI_APPLICATION = 'StudentManagementSystem.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',  # или другой движок
+        'NAME': BASE_DIR / "db.sqlite3",
     }
 }
 

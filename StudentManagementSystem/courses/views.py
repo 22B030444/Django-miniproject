@@ -1,42 +1,48 @@
-from requests import Response
 from rest_framework.decorators import action
-from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from django.core.cache import cache
-from .models import Course
-from .serializers import CourseSerializer
-import logging
-from rest_framework.response import Response
-# courses/views.py
-from rest_framework import viewsets
-from .models import Enrollment
-from .serializers import EnrollmentSerializer
 
+from students.models import Student
+from users.permissions import IsStudent, IsAdmin
+from .models import Course, Enrollment
+from .serializers import CourseSerializer, EnrollmentSerializer
+import logging
+from rest_framework import viewsets
+from rest_framework.response import Response
 
 # Set up logger for courses app
 logger = logging.getLogger('courses')
 
+from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
+from .models import Enrollment
+from .serializers import EnrollmentSerializer
+
+import logging
+
+logger = logging.getLogger(__name__)
 
 class EnrollmentViewSet(viewsets.ModelViewSet):
     queryset = Enrollment.objects.all()
     serializer_class = EnrollmentSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_permissions(self):
+        # Настройка прав доступа в зависимости от действия
+        if self.action == 'create':
+            return [IsStudent()]
+        elif self.action in ['update', 'destroy']:
+            return [IsAdmin()]
+        return [IsAuthenticated()]
 
     def perform_create(self, serializer):
-        # Log when a student is enrolled
-        student = serializer.validated_data['student']
-        course = serializer.validated_data['course']
-        logger.info(f"Student {student.username} enrolled in course {course.name}")
-        super().perform_create(serializer)
+        student = serializer.validated_data.get('student')
+        course = serializer.validated_data.get('course')
 
+        if student and course:
+            logger.info(f"Student {student.username} enrolled in course {course.name}")
+        else:
+            logger.warning("Enrollment attempted without valid student or course data.")
 
-class EnrollmentViewSet(viewsets.ModelViewSet):
-    queryset = Enrollment.objects.all()
-    serializer_class = EnrollmentSerializer
-
-    def perform_create(self, serializer):
-        # Log when a student is enrolled
-        student = serializer.validated_data['student']
-        course = serializer.validated_data['course']
-        logger.info(f"Student {student.username} enrolled in course {course.name}")
         super().perform_create(serializer)
 
 class CourseViewSet(viewsets.ModelViewSet):
@@ -52,20 +58,16 @@ class CourseViewSet(viewsets.ModelViewSet):
             serialized_courses = self.get_serializer(courses, many=True)
             return Response(serialized_courses.data)
         return Response({"error": "instructor_id parameter is required"}, status=400)
+
     def perform_create(self, serializer):
-        # Get the student and course from the validated data
-        student = serializer.validated_data['student']
-        course = serializer.validated_data['course']
-
-        # Log the enrollment action
-        logger.info(f"Student {student.username} enrolled in course {course.name}")
-
-        # Perform the actual create action (save to the database)
+        # Логируем создание курса
+        logger.info(f"Course {serializer.validated_data['name']} created.")
         super().perform_create(serializer)
+
     def get_permissions(self):
         if self.action in ['create', 'update', 'destroy']:
-            return [IsAdminUser()]  # Only Admins can add/edit/delete courses
-        return [IsAuthenticated()]  # Everyone can view courses
+            return [IsAdmin()]  # Только администраторы могут добавлять, обновлять и удалять курсы
+        return [IsAuthenticated()]  # Все аутентифицированные пользователи могут просматривать курсы
 
     def list(self, request, *args, **kwargs):
         instructor = request.query_params.get('instructor', None)
@@ -83,7 +85,7 @@ class CourseViewSet(viewsets.ModelViewSet):
         if instructor:
             courses = self.queryset.filter(instructor=instructor)
         elif student:
-            courses = self.queryset.filter(students__id=student)  # Many-to-many relation
+            courses = self.queryset.filter(enrollments__student__id=student)  # Many-to-many relation
         else:
             courses = self.queryset.all()
 

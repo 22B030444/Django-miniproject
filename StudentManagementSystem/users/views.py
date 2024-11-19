@@ -6,8 +6,8 @@ from drf_yasg.utils import swagger_auto_schema
 
 from students.models import Student
 from students.serializers import StudentSerializer
-from .serializers import RegistrationSerializer
 from .permissions import IsStudent, IsTeacher, IsAdmin
+from users.serializers import CreateSerializer
 
 # Logging setup
 logger = logging.getLogger('django')
@@ -20,31 +20,33 @@ class StudentViewSet(viewsets.ModelViewSet):
     """
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
-    permission_classes = [IsAuthenticated]  # Permission classes will dynamically set below
 
     def get_permissions(self):
         """
         Assign permissions dynamically based on user role.
         """
-        if self.action in ['retrieve', 'update', 'partial_update', 'destroy']:
-            return [IsStudent()]
-        if self.action in ['list', 'create']:
-            return [IsTeacher() or IsAdmin()]
-        return super().get_permissions()
-
+        permission_map = {
+            'retrieve': [IsStudent()],
+            'update': [IsStudent()],
+            'partial_update': [IsStudent()],
+            'destroy': [IsStudent()],
+            'list': [IsTeacher() | IsAdmin()],
+            'create': [IsTeacher() | IsAdmin()],
+        }
+        return permission_map.get(self.action, [IsAuthenticated()])
 
 class RegistrationView(generics.CreateAPIView):
     """
     API View for user registration.
     """
-    serializer_class = RegistrationSerializer
+    serializer_class = CreateSerializer
     permission_classes = [AllowAny]  # Anyone can register
 
     @swagger_auto_schema(
         operation_description="Register a new user with username, email, password, and role.",
-        request_body=RegistrationSerializer,
+        request_body=CreateSerializer,
         responses={
-            201: "User registered successfully.",
+            201: "User  registered successfully.",
             400: "Validation error.",
         }
     )
@@ -55,7 +57,7 @@ class RegistrationView(generics.CreateAPIView):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
             user = serializer.save()
-            logger.info(f"User registered successfully: {user.username}")
+            logger.info(f"User  registered successfully: {user.username}, IP: {request.META.get('REMOTE_ADDR')}")
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        logger.warning(f"Registration failed: {serializer.errors}")
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        logger.warning(f"Registration failed for {request.data.get('username')}: {serializer.errors}")
+        return Response({'error': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)

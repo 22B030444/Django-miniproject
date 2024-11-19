@@ -27,9 +27,16 @@ schema_view = get_schema_view(
 
 # URL patterns
 urlpatterns = [
-    path('api/v1/', include(router.urls)),  # API routes for students and admin
-    path('api/v1/auth/', include('djoser.urls')),  # Authentication routes
-    path('api/v1/auth/', include('djoser.urls.jwt')),  # JWT Authentication
-    path('api/v1/swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='swagger-docs'),  # Swagger UI
-    path('api/v1/redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='redoc-docs'),  # ReDoc UI (optional)
+    # API routes for students and admin
+    path('api/v1/', include(router.urls)),
+
+    # Authentication routes
+    path('api/v1/auth/', include('djoser.urls')),
+    path('api/v1/auth/', include('djoser.urls.jwt')),
+
+    # Swagger UI
+    path('api/v1/swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='swagger-docs'),
+
+    # ReDoc UI (optional)
+    path('api/v1/redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='redoc-docs'),
 ]

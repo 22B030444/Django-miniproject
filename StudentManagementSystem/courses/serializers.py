@@ -1,35 +1,38 @@
+# courses/serializers.py
+
 from students.models import Student
 from students.serializers import StudentSerializer
-
-from .models import Course
-
+from .models import Course, Enrollment
 from rest_framework import serializers
-from .models import Enrollment
-
 
 class EnrollmentSerializer(serializers.ModelSerializer):
-    # You can customize the fields as needed
     student = serializers.PrimaryKeyRelatedField(queryset=Student.objects.all())
     course = serializers.PrimaryKeyRelatedField(queryset=Course.objects.all())
 
     class Meta:
         model = Enrollment
-        fields = ['id', 'student', 'course', 'enrollment_date']  # Adjust fields as per your model
+        fields = ['id', 'student', 'course', 'enrollment_date']
 
     def validate(self, data):
-        # Optional: Add custom validation if needed
-        if data['student'].is_enrolled_in_course(data['course']):  # Assuming you have a method to check this
+        """
+        Проверка на то, что студент не зачислен на этот курс.
+        """
+        student = data['student']
+        course = data['course']
+        if student.is_enrolled_in_course(course):  # Предполагается, что метод реализован в модели Student
             raise serializers.ValidationError("Student is already enrolled in this course.")
         return data
 
-
 class CourseSerializer(serializers.ModelSerializer):
-    students = StudentSerializer(many=True, read_only=True)  # Nested relationship
+    students = serializers.SerializerMethodField()  # Используем метод для получения студентов
 
     class Meta:
         model = Course
         fields = ['id', 'name', 'description', 'instructor', 'students']
 
-    def get_students(self):
-        from students.serializers import StudentSerializer
-
+    def get_students(self, obj):
+        """
+        Получение списка студентов, зачисленных на курс.
+        """
+        students = obj.enrollments.values_list('student', flat=True)  # Получаем ID студентов
+        return StudentSerializer(Student.objects.filter(id__in=students), many=True).data  # Сериализация студентов

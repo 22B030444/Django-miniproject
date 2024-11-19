@@ -35,6 +35,10 @@ class RegistrationTests(APITestCase):
         }
         response = self.client.post('/users/register/', data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertIn("username", response.data)
+        self.assertIn("email", response.data)
+        self.assertIn("password", response.data)
+        self.assertIn("role", response.data)
 
 
 class StudentViewSetTests(APITestCase):
@@ -104,3 +108,10 @@ class StudentViewSetTests(APITestCase):
         }
         response = self.client.post('/users/students/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+    def tearDown(self):
+        """
+        Clean up after each test.
+        """
+        get_user_model().objects.all().delete()
+        Student.objects.all().delete()
