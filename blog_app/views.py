@@ -42,7 +42,7 @@ class PostDetail(APIView):
         if comment_form.is_valid():
             new_comment = comment_form.save(commit=False)
             new_comment.post = post
-            new_comment.author = request.user  # Assuming the user is logged in
+            new_comment.author = request.user  # Assuming the users is logged in
             new_comment.save()
             return redirect('post-detail', post_id=post.id)  # Redirect to the same page after posting
 

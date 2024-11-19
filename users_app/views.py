@@ -10,10 +10,10 @@ from .serializers import UserSerializer, ProfileSerializer
 from django.contrib.auth.views import LoginView, LogoutView
 
 class CustomLoginView(LoginView):
-    template_name = 'user/login.html'
+    template_name = 'users/login.html'
 
 class CustomLogoutView(LogoutView):
-    template_name = 'user/logout.html'
+    template_name = 'users/logout.html'
 
 
 class MainPage(TemplateView):
@@ -28,15 +28,15 @@ class MainPage(TemplateView):
 class UserRegistration(APIView):
     def get(self, request, format=None):
         form = UserRegisterForm()
-        return render(request, 'user/registration.html', {'form': form})
+        return render(request, 'users/registration.html', {'form': form})
 
     def post(self, request, format=None):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)  # Automatically log in the user after registration
+            login(request, user)  # Automatically log in the users after registration
             return redirect('post-list')  # Redirect to the post list after successful registration
-        return render(request, 'user/registration.html', {'form': form})
+        return render(request, 'users/registration.html', {'form': form})
 
 class UserProfileView(View):
     def get(self, request, user_id, format=None):
@@ -49,8 +49,8 @@ class UserProfileView(View):
         # Проверяем, подписан ли текущий пользователь на профиль
         is_following = Follow.objects.filter(follower=request.user, following=user).exists()
 
-        return render(request, 'user/profile.html', {
-            'user': user,
+        return render(request, 'users/profile.html', {
+            'users': user,
             'posts': posts,
             'followers': followers,  # Передаем список пользователей
             'following': following,  # Передаем список подписок
@@ -60,15 +60,15 @@ class UserProfileView(View):
 class EditUserProfile(APIView):
     def get(self, request, user_id, format=None):
         user = get_object_or_404(User, id=user_id)
-        return render(request, 'user/profile.html', {
-            'user': user,
+        return render(request, 'users/profile.html', {
+            'users': user,
             'is_following': request.user.following.filter(id=user.id).exists(),
         })
 
     def post(self, request, user_id, format=None):
         user = get_object_or_404(User, id=user_id)
         if request.user != user:
-            return redirect('user-profile', user_id=user_id)
+            return redirect('users-profile', user_id=user_id)
 
         # Обновление профиля пользователя
         bio = request.POST.get('bio')
@@ -84,16 +84,16 @@ class EditUserProfile(APIView):
             # Создаем профиль, если его нет
             Profile.objects.create(user=user, bio=bio, profile_picture=profile_picture)
 
-        return redirect('user-profile', user_id=user_id)
+        return redirect('users-profile', user_id=user_id)
 
 class FollowUser(APIView):
     def post(self, request, user_id, format=None):
         user_to_follow = get_object_or_404(User, id=user_id)
         follow, created = Follow.objects.get_or_create(follower=request.user, following=user_to_follow)
         if created:
-            # Redirect back to the user's profile with a success message
-            return redirect('user-profile', user_id=user_id)  # Use the appropriate URL name
-        return redirect('user-profile', user_id=user_id)
+            # Redirect back to the users's profile with a success message
+            return redirect('users-profile', user_id=user_id)  # Use the appropriate URL name
+        return redirect('users-profile', user_id=user_id)
 class UnfollowUser(APIView):
     def post(self, request, user_id, format=None):
         user_to_unfollow = get_object_or_404(User, id=user_id)
@@ -104,10 +104,10 @@ class UnfollowUser(APIView):
             follow.delete()
             message = f"You have unfollowed {user_to_unfollow.username}"
         else:
-            message = "You are not following this user"
+            message = "You are not following this users"
 
-        return render(request, 'user/profile.html', {
-            'user': user_to_unfollow,
+        return render(request, 'users/profile.html', {
+            'users': user_to_unfollow,
             'message': message,
-            'user_to_follow': user_to_unfollow,  # Pass the user being unfollowed
+            'user_to_follow': user_to_unfollow,  # Pass the users being unfollowed
         })
