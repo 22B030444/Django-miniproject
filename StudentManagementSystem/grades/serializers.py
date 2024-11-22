@@ -10,7 +10,7 @@ class GradeSerializer(serializers.ModelSerializer):
     student = serializers.PrimaryKeyRelatedField(queryset=Student.objects.all())
     course = serializers.PrimaryKeyRelatedField(queryset=Course.objects.all())
 
-    # Определяем поля для оценок
+
     grade_value = serializers.DecimalField(max_digits=5, decimal_places=2, required=False, allow_null=True)
     grade_letter = serializers.CharField(max_length=5, required=False, allow_blank=True)
 

@@ -19,15 +19,14 @@ def get_course_list():
 
     if cached_data:
         logger.debug(f"Cache hit for {cache_key}")
-        return cached_data  # Возвращаем кэшированные данные
+        return cached_data
 
     logger.debug(f"Cache miss for {cache_key}")
 
-    # Извлекаем данные из базы данных
-    courses = Course.objects.all()  # Получаем все курсы
-    serialized_courses = CourseSerializer(courses, many=True).data  # Сериализуем курсы
 
-    # Сохраняем данные в кэш на 5 минут
+    courses = Course.objects.all()
+    serialized_courses = CourseSerializer(courses, many=True).data
+
     cache.set(cache_key, serialized_courses, timeout=300)
 
     return serialized_courses

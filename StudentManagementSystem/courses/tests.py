@@ -13,13 +13,13 @@ class EnrollmentSerializerTest(APITestCase):
             'student': self.student.id,
             'course': self.course.id,
         })
-        self.assertEqual(response.status_code, 201)  # Проверяем, что создание прошло успешно
+        self.assertEqual(response.status_code, 201)
 
     def test_duplicate_enrollment(self):
-        Enrollment.objects.create(student=self.student, course=self.course)  # Создаем первое зачисление
+        Enrollment.objects.create(student=self.student, course=self.course)
         response = self.client.post('/api/v1/enrollments/', {
             'student': self.student.id,
             'course': self.course.id,
         })
-        self.assertEqual(response.status_code, 400)  # Должен вернуть ошибку
+        self.assertEqual(response.status_code, 400)
         self.assertIn("Student is already enrolled in this course.", response.data['non_field_errors'])

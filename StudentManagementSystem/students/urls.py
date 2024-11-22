@@ -4,12 +4,11 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from rest_framework import permissions
 
-from students.views import StudentViewSet, AdminViewSet
+from students.views import StudentViewSet
 
 # Router configuration
 router = DefaultRouter()
 router.register(r'students', StudentViewSet, basename='students')
-router.register(r'admin', AdminViewSet, basename='admin')
 
 # Swagger Schema
 schema_view = get_schema_view(
@@ -25,18 +24,12 @@ schema_view = get_schema_view(
     permission_classes=(permissions.AllowAny,),
 )
 
-# URL patterns
-urlpatterns = [
-    # API routes for students and admin
-    path('api/v1/', include(router.urls)),
 
-    # Authentication routes
+urlpatterns = [
+
+    path('api/v1/', include(router.urls)),
     path('api/v1/auth/', include('djoser.urls')),
     path('api/v1/auth/', include('djoser.urls.jwt')),
-
-    # Swagger UI
     path('api/v1/swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='swagger-docs'),
-
-    # ReDoc UI (optional)
     path('api/v1/redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='redoc-docs'),
 ]

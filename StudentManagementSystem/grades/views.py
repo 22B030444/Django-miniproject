@@ -30,7 +30,6 @@ class GradeViewSet(viewsets.ModelViewSet):
         grade_value = serializer.validated_data.get('grade_value')
         grade_letter = serializer.validated_data.get('grade_letter')
 
-        # Логируем перед проверкой
         logger.info(f"Trying to create grade for student {student.id} in course {course.id}")
 
         # Проверяем, что студент и курс существуют

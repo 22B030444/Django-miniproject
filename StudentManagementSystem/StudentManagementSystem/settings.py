@@ -12,22 +12,25 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from datetime import timedelta
 from pathlib import Path
 import os
-# settings.py
 
+from celery import Celery
 from celery.schedules import crontab
 
-CELERY_BEAT_SCHEDULE = {
-    'daily-attendance-reminder': {
+app = Celery()
+
+app.conf.beat_schedule = {
+    'daily_attendance_reminder': {
         'task': 'notifications.tasks.send_attendance_reminder',
-        'schedule': crontab(minute=0, hour=9),  # Runs every day at 9:00 AM
+        'schedule': crontab(hour=8, minute=0),  # Каждый день в 8:00 утра
     },
-    'weekly-performance-summary': {
+    'weekly_performance_update': {
         'task': 'notifications.tasks.send_weekly_performance_update',
-        'schedule': crontab(minute=0, hour=10, day_of_week=0),  # Runs every Sunday at 10:00 AM
+        'schedule': crontab(hour=9, minute=0, day_of_week='monday'),  # Каждый понедельник в 9:00 утра
     },
 }
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'admin@example.com'
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 

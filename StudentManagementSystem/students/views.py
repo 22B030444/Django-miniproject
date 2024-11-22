@@ -1,45 +1,14 @@
-from rest_framework.exceptions import PermissionDenied
+from rest_framework.exceptions import PermissionDenied, NotFound
 from django.core.cache import cache
-from attendance.models import Attendance
-from courses.models import Enrollment
-from grades.models import Grade
-from users.permissions import IsAdmin, IsStudent, IsTeacher
-from rest_framework import viewsets
+from rest_framework import viewsets, status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from .models import Student
 from .serializers import StudentSerializer
+from users.permissions import IsAdmin, IsStudent
 import logging
 
-# Configure a logger for the students app
 logger = logging.getLogger('students')
-
-
-class AdminViewSet(viewsets.ModelViewSet):
-    """
-    Viewset for administrators. Allows full access to all student records.
-    """
-    permission_classes = [IsAuthenticated, IsAdmin, IsTeacher]  # Only admins can access
-    queryset = Student.objects.all()
-    serializer_class = StudentSerializer
-
-    def get_grades(self):
-        """
-        Get all grades. Can be extended for filtering by student or course.
-        """
-        return Grade.objects.all()
-
-    def get_attendance(self):
-        """
-        Get all attendance records. Can be extended for filtering.
-        """
-        return Attendance.objects.all()
-
-    def get_enrollments(self):
-        """
-        Get all enrollments. Useful for administrative tasks.
-        """
-        return Enrollment.objects.all()
 
 
 class StudentViewSet(viewsets.ModelViewSet):
@@ -48,7 +17,7 @@ class StudentViewSet(viewsets.ModelViewSet):
     """
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
-    permission_classes = [IsAuthenticated, IsStudent]  # Only students
+    permission_classes = [IsAuthenticated, IsStudent]
 
     def get_queryset(self):
         """
@@ -56,17 +25,19 @@ class StudentViewSet(viewsets.ModelViewSet):
         """
         user = self.request.user
         if hasattr(user, 'role') and user.role == 'STUDENT':
+            logger.info(f"Student {user.username} accessing their own profile")
             return self.queryset.filter(user=user)
-        return self.queryset  # Admins/teachers can see all students
+        logger.info(f"Unauthorized access attempt by user: {user.username}")
+        raise PermissionDenied("You can only access your own data.")
 
     def retrieve(self, request, *args, **kwargs):
         """
-        Retrieve student data. Implements caching for improved performance.
+        Retrieve student data with caching.
         """
         student_id = kwargs.get('pk')
         if not student_id:
             logger.warning('No student ID provided in retrieve request')
-            return Response({"error": "Student ID is required"}, status=400)
+            return Response({"error": "Student ID is required"}, status=status.HTTP_400_BAD_REQUEST)
 
         cache_key = f'student_profile_{student_id}'
         cached_student = cache.get(cache_key)
@@ -79,11 +50,9 @@ class StudentViewSet(viewsets.ModelViewSet):
             student = self.get_object()
         except Student.DoesNotExist:
             logger.error(f'Student ID: {student_id} does not exist')
-            return Response({"error": "Student not found"}, status=404)
+            raise NotFound("Student not found")
 
         serialized_student = self.get_serializer(student)
-
-        # Cache the student profile for 5 minutes
         cache.set(cache_key, serialized_student.data, timeout=300)
         logger.info(f'Student ID: {student_id} added to cache')
 
@@ -98,7 +67,7 @@ class StudentViewSet(viewsets.ModelViewSet):
             logger.warning(f'Unauthorized update attempt by user: {self.request.user.username} on student ID: {student.id}')
             raise PermissionDenied("You can only edit your own data.")
 
-        # Invalidate the cache for the updated student
+
         cache_key = f'student_profile_{student.id}'
         cache.delete(cache_key)
         logger.info(f'Cache cleared for student ID: {student.id}')

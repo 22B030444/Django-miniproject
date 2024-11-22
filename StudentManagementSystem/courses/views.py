@@ -38,7 +38,7 @@ class EnrollmentViewSet(viewsets.ModelViewSet):
         student = serializer.validated_data.get('student')
         course = serializer.validated_data.get('course')
 
-        # Проверка существования объектов
+
         get_object_or_404(Student, pk=student.id)
         get_object_or_404(Course, pk=course.id)
 
@@ -77,12 +77,12 @@ class CourseViewSet(viewsets.ModelViewSet):
         # Construct cache key based on filters
         cache_key = f'course_list_instructor_{instructor}_student_{student}'
 
-        # Check if cached data exists
+
         cached_courses = cache.get(cache_key)
         if cached_courses:
             return Response(cached_courses)
 
-        # Filter courses by instructor or student (if parameters exist)
+
         if instructor:
             courses = self.queryset.filter(instructor=instructor)
         elif student:
@@ -92,7 +92,7 @@ class CourseViewSet(viewsets.ModelViewSet):
 
         serialized_courses = self.get_serializer(courses, many=True)
 
-        # Cache the courses for 10 minutes
+
         cache.set(cache_key, serialized_courses.data, timeout=600)
 
         return Response(serialized_courses.data)

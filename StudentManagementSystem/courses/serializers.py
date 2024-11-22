@@ -2,11 +2,8 @@
 
 from students.models import Student
 from students.serializers import StudentSerializer
-from .models import Course, Enrollment
 from rest_framework import serializers
-
-from rest_framework import serializers
-from .models import Enrollment,Course
+from .models import Enrollment, Course
 
 class EnrollmentSerializer(serializers.ModelSerializer):
     class Meta:
@@ -17,7 +14,7 @@ class EnrollmentSerializer(serializers.ModelSerializer):
         student = attrs.get('student')
         course = attrs.get('course')
 
-        # Дополнительная проверка
+
         if not Student.objects.filter(pk=student.id).exists():
             raise serializers.ValidationError({"student": "Student does not exist."})
         if not Course.objects.filter(pk=course.id).exists():
@@ -26,7 +23,7 @@ class EnrollmentSerializer(serializers.ModelSerializer):
         return attrs
 
 class CourseSerializer(serializers.ModelSerializer):
-    students = serializers.SerializerMethodField()  # Используем метод для получения студентов
+    students = serializers.SerializerMethodField()
 
     class Meta:
         model = Course

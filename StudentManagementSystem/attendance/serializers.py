@@ -6,8 +6,8 @@ from courses.models import Course
 from students.models import Student
 
 class AttendanceSerializer(serializers.ModelSerializer):
-    student = serializers.PrimaryKeyRelatedField(queryset=Student.objects.all())  # Ожидает только ID студента
-    course = serializers.PrimaryKeyRelatedField(queryset=Course.objects.all())  # Ожидает только ID курса
+    student = serializers.PrimaryKeyRelatedField(queryset=Student.objects.all())
+    course = serializers.PrimaryKeyRelatedField(queryset=Course.objects.all())
 
     class Meta:
         model = Attendance
@@ -26,10 +26,9 @@ class AttendanceSerializer(serializers.ModelSerializer):
         """
         Переопределяем метод создания, чтобы извлечь связанные объекты.
         """
-        student = validated_data.pop('student')  # Извлекаем student из validated_data
-        course = validated_data.pop('course')  # Извлекаем course из validated_data
+        student = validated_data.pop('student')
+        course = validated_data.pop('course')
 
-        # Создаем объект Attendance, передав правильные данные
         attendance = Attendance.objects.create(student=student, course=course, **validated_data)
         return attendance
 

@@ -8,8 +8,6 @@ class StudentSerializer(serializers.ModelSerializer):
     Serializer for the Student model.
     Allows for the representation and creation of student instances.
     """
-    # Uncomment the following lines if you want to use nested serialization for courses
-    # courses = CourseSerializer(many=True, read_only=True)
 
     courses = serializers.PrimaryKeyRelatedField(
         queryset=Course.objects.all(),

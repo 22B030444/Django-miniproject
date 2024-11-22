@@ -2727,3 +2727,61 @@ WARNING 2024-11-22 01:58:37,451 basehttp "DELETE /grades/api/v1/grades/2/ HTTP/1
 WARNING 2024-11-22 01:58:51,674 basehttp "GET /attendance/api/v1/attendance/ HTTP/1.1" 401 183
 INFO 2024-11-22 01:59:01,199 basehttp "GET /attendance/api/v1/attendance/ HTTP/1.1" 200 122
 WARNING 2024-11-22 01:59:05,644 basehttp "DELETE /attendance/api/v1/attendance/2/ HTTP/1.1" 404 51
+INFO 2024-11-22 10:11:26,647 autoreload Watching for file changes with StatReloader
+INFO 2024-11-22 10:13:32,906 autoreload Watching for file changes with StatReloader
+INFO 2024-11-22 10:14:32,767 autoreload Watching for file changes with StatReloader
+INFO 2024-11-22 10:15:08,185 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-22 10:15:27,072 basehttp "GET / HTTP/1.1" 404 3226
+WARNING 2024-11-22 10:15:33,675 basehttp "GET /auth/users/ HTTP/1.1" 401 14734
+INFO 2024-11-22 10:19:16,582 autoreload C:\Users\Жасмин\PycharmProjects\Django_miniproject_2\StudentManagementSystem\students\views.py changed, reloading.
+INFO 2024-11-22 10:19:18,852 autoreload Watching for file changes with StatReloader
+INFO 2024-11-22 10:19:53,100 autoreload C:\Users\Жасмин\PycharmProjects\Django_miniproject_2\StudentManagementSystem\students\urls.py changed, reloading.
+INFO 2024-11-22 10:19:54,824 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-22 10:19:56,692 basehttp "GET / HTTP/1.1" 404 3226
+WARNING 2024-11-22 10:20:08,383 basehttp "GET /students/api/ HTTP/1.1" 404 4440
+INFO 2024-11-22 10:20:17,397 basehttp "GET /students/api/v1/redoc/ HTTP/1.1" 200 946
+INFO 2024-11-22 10:20:17,462 basehttp "GET /static/drf-yasg/style.css HTTP/1.1" 304 0
+INFO 2024-11-22 10:20:17,466 basehttp "GET /static/drf-yasg/insQ.min.js HTTP/1.1" 304 0
+INFO 2024-11-22 10:20:17,560 basehttp "GET /static/drf-yasg/redoc-init.js HTTP/1.1" 200 2566
+INFO 2024-11-22 10:20:17,585 basehttp "GET /static/drf-yasg/redoc/redoc.min.js HTTP/1.1" 200 1042511
+INFO 2024-11-22 10:20:17,939 views Unauthorized access attempt by user: 
+INFO 2024-11-22 10:20:17,947 views Unauthorized access attempt by user: 
+INFO 2024-11-22 10:20:17,950 views Unauthorized access attempt by user: 
+INFO 2024-11-22 10:20:17,956 views Unauthorized access attempt by user: 
+INFO 2024-11-22 10:20:18,031 basehttp "GET /static/drf-yasg/redoc/redoc-logo.png HTTP/1.1" 200 4969
+INFO 2024-11-22 10:20:18,125 views Unauthorized access attempt by user: 
+INFO 2024-11-22 10:20:18,232 basehttp "GET /students/api/v1/redoc/?format=openapi HTTP/1.1" 200 41633
+INFO 2024-11-22 10:21:32,575 autoreload C:\Users\Жасмин\PycharmProjects\Django_miniproject_2\StudentManagementSystem\StudentManagementSystem\urls.py changed, reloading.
+INFO 2024-11-22 10:21:34,567 autoreload Watching for file changes with StatReloader
+INFO 2024-11-22 10:21:39,046 autoreload C:\Users\Жасмин\PycharmProjects\Django_miniproject_2\StudentManagementSystem\StudentManagementSystem\urls.py changed, reloading.
+INFO 2024-11-22 10:21:41,125 autoreload Watching for file changes with StatReloader
+INFO 2024-11-22 10:21:48,309 basehttp "GET /redoc/ HTTP/1.1" 200 946
+INFO 2024-11-22 10:21:48,644 views Unauthorized access attempt by user: 
+INFO 2024-11-22 10:21:48,652 views Unauthorized access attempt by user: 
+INFO 2024-11-22 10:21:48,655 views Unauthorized access attempt by user: 
+INFO 2024-11-22 10:21:48,659 views Unauthorized access attempt by user: 
+INFO 2024-11-22 10:21:48,822 views Unauthorized access attempt by user: 
+INFO 2024-11-22 10:21:48,918 basehttp "GET /redoc/?format=openapi HTTP/1.1" 200 41633
+INFO 2024-11-22 10:22:26,718 autoreload C:\Users\Жасмин\PycharmProjects\Django_miniproject_2\StudentManagementSystem\StudentManagementSystem\urls.py changed, reloading.
+INFO 2024-11-22 10:22:28,961 autoreload Watching for file changes with StatReloader
+INFO 2024-11-22 10:23:50,270 autoreload C:\Users\Жасмин\PycharmProjects\Django_miniproject_2\StudentManagementSystem\StudentManagementSystem\urls.py changed, reloading.
+INFO 2024-11-22 10:23:53,062 autoreload Watching for file changes with StatReloader
+INFO 2024-11-22 10:24:57,214 autoreload C:\Users\Жасмин\PycharmProjects\Django_miniproject_2\StudentManagementSystem\StudentManagementSystem\urls.py changed, reloading.
+INFO 2024-11-22 10:24:58,822 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-22 10:25:00,767 basehttp "GET / HTTP/1.1" 404 3566
+INFO 2024-11-22 10:25:10,575 basehttp "GET /swagger/ HTTP/1.1" 200 2232
+INFO 2024-11-22 10:25:10,672 basehttp "GET /static/drf-yasg/swagger-ui-dist/swagger-ui-bundle.js HTTP/1.1" 304 0
+INFO 2024-11-22 10:25:10,672 basehttp "GET /static/drf-yasg/immutable.min.js HTTP/1.1" 304 0
+INFO 2024-11-22 10:25:10,672 basehttp "GET /static/drf-yasg/swagger-ui-dist/swagger-ui.css HTTP/1.1" 304 0
+INFO 2024-11-22 10:25:10,685 basehttp "GET /static/drf-yasg/swagger-ui-dist/swagger-ui-standalone-preset.js HTTP/1.1" 304 0
+INFO 2024-11-22 10:25:10,686 basehttp "GET /static/drf-yasg/swagger-ui-init.js HTTP/1.1" 304 0
+INFO 2024-11-22 10:25:11,369 views Unauthorized access attempt by user: 
+INFO 2024-11-22 10:25:11,379 views Unauthorized access attempt by user: 
+INFO 2024-11-22 10:25:11,387 views Unauthorized access attempt by user: 
+INFO 2024-11-22 10:25:11,388 views Unauthorized access attempt by user: 
+INFO 2024-11-22 10:25:11,493 views Unauthorized access attempt by user: 
+INFO 2024-11-22 10:25:11,676 basehttp "GET /swagger/?format=openapi HTTP/1.1" 200 41631
+INFO 2024-11-22 10:30:21,049 autoreload C:\Users\Жасмин\PycharmProjects\Django_miniproject_2\StudentManagementSystem\students\views.py changed, reloading.
+INFO 2024-11-22 10:30:23,644 autoreload Watching for file changes with StatReloader
+INFO 2024-11-22 10:34:33,391 autoreload C:\Users\Жасмин\PycharmProjects\Django_miniproject_2\StudentManagementSystem\attendance\models.py changed, reloading.
+INFO 2024-11-22 10:34:35,114 autoreload Watching for file changes with StatReloader

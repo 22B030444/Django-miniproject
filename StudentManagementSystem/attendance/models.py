@@ -8,16 +8,16 @@ class Attendance(models.Model):
     STATUS_CHOICES = [
         ('Present', 'Present'),
         ('Absent', 'Absent'),
-        ('Late', 'Late'),  # Можно добавить другие статусы, если необходимо
+        ('Late', 'Late'),
     ]
 
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     date = models.DateField()
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES)  # Используем choices для статуса
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES)
 
     class Meta:
-        unique_together = ('student', 'course', 'date')  # Уникальность записи о посещаемости
+        unique_together = ('student', 'course', 'date')
 
     def __str__(self):
         return f"{self.student.name} - {self.course.name} - {self.date} - {self.status}"

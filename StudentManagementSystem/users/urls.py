@@ -1,12 +1,9 @@
-# users/urls.py
-
 from django.urls import path, include
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from .views import RegistrationView
 
-# Настройка схемы Swagger
 schema_view = get_schema_view(
     openapi.Info(
         title="Student Management System API",
@@ -25,8 +22,8 @@ urlpatterns = [
     path('register/', RegistrationView.as_view(), name='register'),
 
     # Эндпоинты аутентификации (Djoser)
-    path('auth/', include('djoser.urls')),  # Эндпоинты для аутентификации
-    path('auth/', include('djoser.urls.jwt')),  # Эндпоинты для JWT аутентификации
+    path('auth/', include('djoser.urls')),
+    path('auth/', include('djoser.urls.jwt')),
 
     # Swagger UI для документации API
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='swagger-docs'),

@@ -14,7 +14,7 @@ class Grade(models.Model):
     teacher = models.CharField(max_length=255)
 
     class Meta:
-        unique_together = ('student', 'course')  # A student can only have one grade per course
+        unique_together = ('student', 'course')
 
     def __str__(self):
         return f"{self.student.name} - {self.course.name} - {self.grade_letter or self.grade_value} - {self.date}"

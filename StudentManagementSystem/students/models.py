@@ -32,7 +32,7 @@ class Student(models.Model):
         Custom validation for the Student model.
         """
         super().clean()
-        # Add any custom validation here if necessary
+
 
     def is_enrolled_in_course(self, course):
         return Enrollment.objects.filter(student=self, course=course).exists()

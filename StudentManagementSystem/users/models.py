@@ -3,7 +3,7 @@ from django.db import models
 from django.core.exceptions import ValidationError
 
 class CustomUser(AbstractUser):
-    # Определение выбора ролей
+
     STUDENT = 'STUDENT'
     TEACHER = 'TEACHER'
     ADMIN = 'ADMIN'
