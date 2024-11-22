@@ -1,6 +1,5 @@
 from rest_framework import permissions
 
-
 class IsStudent(permissions.BasePermission):
     """
     Custom permission to allow students to access their own records only.
@@ -50,4 +49,3 @@ class IsStudentOrTeacher(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
         # Allow access if the user is either a student or a teacher
         return (request.user.is_student() and obj.user == request.user) or request.user.is_teacher()
-

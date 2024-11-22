@@ -23,7 +23,7 @@ class AttendanceViewSet(viewsets.ModelViewSet):
         Устанавливает разрешения в зависимости от действия.
         """
         if self.action in ['create', 'update', 'destroy']:
-            return [IsAdminUser(), IsTeacher()]  # Только администраторы могут создавать/обновлять/удалять посещаемость
+            return [IsTeacher()]  # Только администраторы могут создавать/обновлять/удалять посещаемость
         return super().get_permissions()  # Все могут просматривать посещаемость
 
     def perform_create(self, serializer):

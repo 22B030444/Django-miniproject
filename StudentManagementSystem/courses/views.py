@@ -1,5 +1,6 @@
 from rest_framework.decorators import action
 from django.core.cache import cache
+from rest_framework.generics import get_object_or_404
 
 from students.models import Student
 from users.permissions import IsStudent, IsAdmin
@@ -27,7 +28,6 @@ class EnrollmentViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 
     def get_permissions(self):
-        # Настройка прав доступа в зависимости от действия
         if self.action == 'create':
             return [IsStudent()]
         elif self.action in ['update', 'destroy']:
@@ -38,12 +38,13 @@ class EnrollmentViewSet(viewsets.ModelViewSet):
         student = serializer.validated_data.get('student')
         course = serializer.validated_data.get('course')
 
-        if student and course:
-            logger.info(f"Student {student.username} enrolled in course {course.name}")
-        else:
-            logger.warning("Enrollment attempted without valid student or course data.")
+        # Проверка существования объектов
+        get_object_or_404(Student, pk=student.id)
+        get_object_or_404(Course, pk=course.id)
 
+        logger.info(f"Student {student.id} enrolled in course {course.id}")
         super().perform_create(serializer)
+
 
 class CourseViewSet(viewsets.ModelViewSet):
     queryset = Course.objects.all()

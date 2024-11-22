@@ -38,6 +38,6 @@ class CustomUser(AbstractUser):
         return f"{self.username} - {self.get_role_display()}"
 
     class Meta:
-        verbose_name = 'User '
+        verbose_name = 'User'
         verbose_name_plural = 'Users'
         unique_together = ('username', 'email')  # Уникальность username и email

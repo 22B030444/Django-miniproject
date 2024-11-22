@@ -33,6 +33,12 @@ class StudentSerializer(serializers.ModelSerializer):
         Create a new Student instance with the validated data.
         """
         courses_data = validated_data.pop('courses', [])
+        dob = validated_data.get('dob', None)  # Убедитесь, что dob существует
+        if dob is None:
+            validated_data['dob'] = "2000-01-01"  # Установите значение по умолчанию
+        student = Student.objects.create(**validated_data)
+        student.courses.set(courses_data)  # Associate courses with the student
+        return student
         student = Student.objects.create(**validated_data)
         student.courses.set(courses_data)  # Associate courses with the student
         return student

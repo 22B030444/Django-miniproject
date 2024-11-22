@@ -16,7 +16,7 @@ class Student(models.Model):
     )
     name = models.CharField(max_length=255, help_text="Full name of the student.")
     email = models.EmailField(unique=True, help_text="Unique email address of the student.")
-    dob = models.DateField(help_text="Date of birth of the student.")
+    dob = models.DateField(null=True, blank=True, help_text="Date of birth of the student.")
     registration_date = models.DateField(auto_now_add=True, help_text="Date when the student registered.")
     courses = models.ManyToManyField(
         'courses.Course',
