@@ -29,6 +29,7 @@ app.conf.beat_schedule = {
     },
 }
 
+GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-XXXXXXXXX-X'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'admin@example.com'
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -68,6 +69,8 @@ INSTALLED_APPS = [
     'attendance',
     'notifications',
     'drf_yasg',
+    'analytics',
+    'analytical'
 
 ]
 REST_FRAMEWORK = {
@@ -80,6 +83,12 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,  # Adjust page size as needed
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.UserRateThrottle',
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        'user': '100/day',  # Ограничение на 100 запросов в день для каждого пользователя
+    },
 }
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
 CELERY_ACCEPT_CONTENT = ['json']
@@ -189,6 +198,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'analytics.middleware.APIRequestLoggingMiddleware',
 ]
 
 ROOT_URLCONF = 'StudentManagementSystem.urls'

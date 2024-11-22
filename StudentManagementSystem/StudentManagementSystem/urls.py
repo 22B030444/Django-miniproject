@@ -40,9 +40,10 @@ urlpatterns = [
     path('auth/', include('djoser.urls.jwt')),
     path('users/', include('users.urls')),
     path('students/', include('students.urls')),
-    path('courses/', include('courses.urls')),
+    path('courses/api/v1/', include('courses.urls')),
     path('grades/', include('grades.urls')),
     path('attendance/', include('attendance.urls')),
+    path('analytics/', include('analytics.urls')),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='redoc-docs'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='swagger-docs'),
 ]

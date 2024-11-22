@@ -72,3 +72,10 @@ class StudentViewSet(viewsets.ModelViewSet):
         cache.delete(cache_key)
         logger.info(f'Cache cleared for student ID: {student.id}')
         serializer.save()
+
+    def get_permissions(self):
+        if self.action in ['list', 'retrieve']:
+            return [IsAuthenticated()]  # Разрешить доступ аутентифицированным пользователям, включая администраторов
+        elif self.action in ['update', 'partial_update']:
+            return [IsAuthenticated(), IsStudent()]
+        return [IsAuthenticated()]

@@ -8,11 +8,11 @@ class StudentSerializer(serializers.ModelSerializer):
     Serializer for the Student model.
     Allows for the representation and creation of student instances.
     """
-
     courses = serializers.PrimaryKeyRelatedField(
         queryset=Course.objects.all(),
         many=True
     )
+    dob = serializers.DateField(required=False, allow_null=True)  # Поле теперь не обязательно
 
     class Meta:
         model = Student
@@ -31,12 +31,7 @@ class StudentSerializer(serializers.ModelSerializer):
         Create a new Student instance with the validated data.
         """
         courses_data = validated_data.pop('courses', [])
-        dob = validated_data.get('dob', None)  # Убедитесь, что dob существует
-        if dob is None:
-            validated_data['dob'] = "2000-01-01"  # Установите значение по умолчанию
-        student = Student.objects.create(**validated_data)
-        student.courses.set(courses_data)  # Associate courses with the student
-        return student
+        validated_data.setdefault('dob', "2000-01-01")  # Устанавливаем значение по умолчанию, если dob отсутствует
         student = Student.objects.create(**validated_data)
         student.courses.set(courses_data)  # Associate courses with the student
         return student

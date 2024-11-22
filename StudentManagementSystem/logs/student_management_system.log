@@ -2785,3 +2785,25 @@ INFO 2024-11-22 10:30:21,049 autoreload C:\Users\Жасмин\PycharmProjects\Django_m
 INFO 2024-11-22 10:30:23,644 autoreload Watching for file changes with StatReloader
 INFO 2024-11-22 10:34:33,391 autoreload C:\Users\Жасмин\PycharmProjects\Django_miniproject_2\StudentManagementSystem\attendance\models.py changed, reloading.
 INFO 2024-11-22 10:34:35,114 autoreload Watching for file changes with StatReloader
+INFO 2024-11-22 15:10:12,705 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-22 15:10:19,909 basehttp "GET / HTTP/1.1" 404 3566
+INFO 2024-11-22 20:25:06,249 autoreload Watching for file changes with StatReloader
+WARNING 2024-11-22 20:25:08,179 basehttp "GET / HTTP/1.1" 404 3726
+WARNING 2024-11-22 20:25:49,833 basehttp "GET /analytics/report/ HTTP/1.1" 404 3918
+WARNING 2024-11-22 20:26:03,018 basehttp "GET /analytics/reports/ HTTP/1.1" 401 10043
+INFO 2024-11-22 20:26:18,220 autoreload Watching for file changes with StatReloader
+INFO 2024-11-22 20:32:26,958 signals User logged in: student
+INFO 2024-11-22 20:32:26,958 views Student 1 enrolled in course 1
+INFO 2024-11-22 20:32:35,583 signals User logged in: admin
+INFO 2024-11-22 20:32:38,565 signals User logged in: student
+WARNING 2024-11-22 20:32:38,583 views Registration failed for : {'username': [ErrorDetail(string='This field may not be blank.', code='blank')], 'email': [ErrorDetail(string='Enter a valid email address.', code='invalid')], 'role': [ErrorDetail(string='"INVALID_ROLE" is not a valid choice.', code='invalid_choice')]}
+INFO 2024-11-22 20:32:39,879 views User registered successfully: testuser, Role: STUDENT, IP: 127.0.0.1
+INFO 2024-11-22 20:33:41,159 signals User logged in: admin
+INFO 2024-11-22 20:33:43,593 signals User logged in: student
+INFO 2024-11-22 20:34:10,430 signals User logged in: student
+INFO 2024-11-22 20:34:10,450 views Student 1 enrolled in course 1
+INFO 2024-11-22 20:35:58,506 views Student admin accessing their own profile
+INFO 2024-11-22 20:36:00,356 views Student student accessing their own profile
+INFO 2024-11-22 20:43:02,873 views Student student accessing their own profile
+INFO 2024-11-22 20:46:41,042 views Student admin accessing their own profile
+INFO 2024-11-22 20:46:43,072 views Student student accessing their own profile

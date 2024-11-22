@@ -8,5 +8,5 @@ router.register(r'courses', CourseViewSet, basename='courses')
 router.register(r'enrollments', EnrollmentViewSet, basename='enrollments')
 
 urlpatterns = [
-    path('api/v1/', include(router.urls)),
+    path('', include(router.urls)),
 ]

@@ -1,17 +1,29 @@
 from django.test import TestCase
 from unittest.mock import patch
+
+from courses.models import Course
 from notifications.tasks import send_attendance_reminder, send_grade_update_notification, send_weekly_performance_update
 from students.models import Student
 from grades.models import Grade
 from django.conf import settings
 
+from users.models import CustomUser
+
+
 class NotificationsTests(TestCase):
 
     def setUp(self):
-        self.student = Student.objects.create(
+        # Создаем пользователя
+        self.user = CustomUser.objects.create_user(
             username='testuser',
             email='test@student.com',
             password='password'
+        )
+        # Создаем студента и связываем с пользователем
+        self.student = Student.objects.create(
+            user=self.user,
+            name="Test Student",
+            email=self.user.email
         )
 
     @patch('notifications.tasks.send_mail')
@@ -20,7 +32,7 @@ class NotificationsTests(TestCase):
 
         mock_send_mail.assert_called_once_with(
             'Daily Attendance Reminder',
-            f'Hello {self.student.username}, please mark your attendance for today.',
+            f'Hello {self.student.name}, please mark your attendance for today.',
             settings.DEFAULT_FROM_EMAIL,
             [self.student.email],
             fail_silently=False,
@@ -28,16 +40,21 @@ class NotificationsTests(TestCase):
 
     @patch('notifications.tasks.send_mail')
     def test_send_grade_update_notification(self, mock_send_mail):
+        # Создаем запись курса
+        course = Course.objects.create(name="Test Course")
+
+        # Создаем запись об оценке для студента
         grade = Grade.objects.create(
             student=self.student,
             score=90,
-            course='Test Course'
+            course=course  # Передаем объект курса
         )
 
         send_grade_update_notification(grade.id)
+
         mock_send_mail.assert_called_once_with(
             'Grade Update Notification',
-            f'Hello {self.student.username}, your grade for Test Course has been updated.',
+            f'Hello {self.student.name}, your grade for Test Course has been updated.',
             settings.DEFAULT_FROM_EMAIL,
             [self.student.email],
             fail_silently=False,
@@ -47,10 +64,9 @@ class NotificationsTests(TestCase):
     def test_send_weekly_performance_update(self, mock_send_mail):
         send_weekly_performance_update()
 
-
-        mock_send_mail.assert_called_with(
+        mock_send_mail.assert_called_once_with(
             'Weekly Performance Summary',
-            f'Hello {self.student.username},\n\nHere is your weekly performance summary:\n\n'
+            f'Hello {self.student.name},\n\nHere is your weekly performance summary:\n\n'
             f'Attendance: 0 days\n'
             f'Average Grade: 0.00\n',
             settings.DEFAULT_FROM_EMAIL,

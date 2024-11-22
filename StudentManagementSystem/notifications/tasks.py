@@ -14,13 +14,13 @@ def send_attendance_reminder():
     """
     Sends a reminder to all students to mark their attendance.
     """
-    students = Student.objects.all().select_related('profile')  # Предварительная загрузка данных
+    students = Student.objects.select_related('user')  # Исправлено
     for student in students:
         if student.email:
             try:
                 send_mail(
                     'Daily Attendance Reminder',
-                    f'Hello {student.username}, please mark your attendance for today.',
+                    f'Hello {student.name}, please mark your attendance for today.',
                     settings.DEFAULT_FROM_EMAIL,
                     [student.email],
                     fail_silently=False,
@@ -58,17 +58,17 @@ def send_weekly_performance_update():
     """
     Sends a weekly performance update to all students.
     """
-    students = Student.objects.all().prefetch_related('attendance_set', 'grade_set')
+    students = Student.objects.all().prefetch_related('attendance_set', 'grades')
     for student in students:
         if student.email:
             attendance_count = Attendance.objects.filter(student=student).count()
-            grades = Grade.objects.filter(student=student).aggregate(avg_grade=Avg('score'))
+            grades = Grade.objects.filter(student=student).aggregate(avg_grade=Avg('grade_value'))  # Исправлено
             avg_grade = grades['avg_grade'] or 0
 
             try:
                 send_mail(
                     'Weekly Performance Summary',
-                    f'Hello {student.username},\n\nHere is your weekly performance summary:\n\n'
+                    f'Hello {student.name},\n\nHere is your weekly performance summary:\n\n'
                     f'Attendance: {attendance_count} days\n'
                     f'Average Grade: {avg_grade:.2f}\n',
                     settings.DEFAULT_FROM_EMAIL,
